@@ -1,0 +1,13 @@
+<form action="{% url 'polls:create' %}" method="post">
+{% csrf_token %}
+   <fieldset>
+      <legend><h1>Enter a question</h1></legend>
+      {% if error_message %}<p><strong>{{ error_message }}</strong></p> {% endif %}
+      {% comment %} {% for choice in question.choice_set.all %} {% endcomment %}
+      <label for="question">Question text</label><br>
+      <input type="text" name="q" id="q" value="">
+      {% comment %} {% endfor %} {% endcomment %}
+   </fieldset>
+   <input type="submit" value="Create">
+</form>
+<a href="{% url 'polls:index' %}"><button>Home</button></a>
